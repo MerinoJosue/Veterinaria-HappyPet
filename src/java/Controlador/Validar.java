@@ -2,6 +2,8 @@ package Controlador;
 
 import Modelo.Cliente;
 import Modelo.ClienteDao;
+import Modelo.Empleado;
+import Modelo.EmpleadoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,6 +17,7 @@ public class Validar extends HttpServlet {
 
     ClienteDao cdao = new ClienteDao();
     Cliente cm = new Cliente();
+    EmpleadoDAO edao=new EmpleadoDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
