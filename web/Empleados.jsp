@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>Formulario de Empleados</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -89,22 +89,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                     <c:forEach var="em" items="${Empleado}">
+                                    <c:forEach var="em" items="${Empleado}">
                                         <!-- Fila donde se mostraran los datos de la bd -->
                                         <tr>
-                                            <td>${em.getId_Empleado()}</td>
-                                            <td>${em.getDni()}</td>
-                                            <td>${em.getNom()}</td>
-                                            <td>${em.getTel()}</td>
-                                            <td>${em.getEstado()}</td>
-                                            <td>${em.getUser()}</td>
+                                            <td>${em.Id_Empleado}</td>
+                                            <td>${em.Dni}</td>
+                                            <td>${em.Nom}</td>
+                                            <td>${em.Tel}</td>
+                                            <td>${em.Estado}</td>
+                                            <td>${em.User}</td>
                                             <td>
                                                 <a class="btn btn-warning"href="Controlador?menu=Empleado&accion=Editar&Id_Empleado=${em.getId_Empleado()}">Editar</a>
                                                 <a class="btn btn-warning"href="Controlador?menu=Empleado&accion=Delete&Id_Empleado=${em.getId_Empleado()}">Delete</a>
-                                        </td>
+                                            </td>
                                         </tr>
                                     </c:forEach>
-                                 
+
 
                                 </tbody>
                             </table>
