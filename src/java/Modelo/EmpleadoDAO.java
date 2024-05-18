@@ -5,7 +5,6 @@
 package Modelo;
 
 import Conexion.Conexion;
-import Modelo.Empleado;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +20,7 @@ public class EmpleadoDAO {
     
     public Empleado Validar(String user, String dni){
         Empleado em = new Empleado();
-        String sql ="select * from empleado where User=? and Dni=?";
+        String sql ="select * from Empleado where User=? and Dni=?";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -29,7 +28,7 @@ public class EmpleadoDAO {
             ps.setString(2, dni);
             rs = ps.executeQuery();
             while (rs.next()){
-                em.setId_Empleado(rs.getInt("IdEmpleado"));
+                em.setId_Empleado(rs.getInt("Id_Empleado"));
                 em.setUser(rs.getString("User"));
                 em.setDni(rs.getString("Dni"));
                 em.setNom(rs.getString("Nombres"));
@@ -39,7 +38,7 @@ public class EmpleadoDAO {
         return em;
         }
     public List listar(){
-        String sql="select * from empleado";
+        String sql="select * from Empleado";
         List<Empleado>lista=new ArrayList<>();
         try {
             con=cn.Conexion();
@@ -60,7 +59,7 @@ public class EmpleadoDAO {
         return lista;
     }
     public int agregar(Empleado em){
-        String sql="insert into empleado(Dni, Nombres, Telefono, Estado,User)values(7,7,7,7,7)";
+        String sql="insert into Empleado(Dni, Nombres, Telefono, Estado,User)values(7,7,7,7,7)";
         try {
             con = cn.Conexion();
             ps=con.prepareStatement(sql);
@@ -74,9 +73,9 @@ public class EmpleadoDAO {
         }
         return r;
     }
-    public Empleado listarId(int id){
+    public Empleado listarId(int Id_Empleado){
         Empleado emp=new Empleado();
-        String sql="select * from empleado where IdEmpleado="+id;
+        String sql="select * from Empleado where Id_Empleado="+Id_Empleado;
         try {
             con= cn.Conexion();
             ps=con.prepareStatement(sql);
@@ -92,8 +91,8 @@ public class EmpleadoDAO {
         }
         return emp;
     }
-    public int actulizar(Empleado em){
-        String sql="update empleado set Dni=?, Nombres=?, Telefono=?, Estado=?,User=? where IdEmpleado=?";
+    public int actualizar(Empleado em){
+        String sql="update Empleado set Dni=?, Nombres=?, Telefono=?, Estado=?,User=? where Id_Empleado=?";
         try {
             con = cn.Conexion();
             ps=con.prepareStatement(sql);
@@ -110,7 +109,7 @@ public class EmpleadoDAO {
         return r;
     }
     public void delete (int id){
-        String sql="delete from empleado where IdEmpleado="+id;
+        String sql="delete from Empleado where Id_Empleado="+id;
         try {
             con= cn.Conexion();
             ps=con.prepareStatement(sql);
@@ -119,4 +118,5 @@ public class EmpleadoDAO {
         }
     }
     }
+
 
