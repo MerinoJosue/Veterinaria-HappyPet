@@ -10,11 +10,11 @@
     </head>
     <body>
         <div class="menu-logo">
-            <a href="#" class="logo">logo</a>
+            <a href="#" class="logo">logo logo</a>
         </div>
 
         <div class="text-center">
-            <label>Bienvenidos(a) a HappyPet</label>
+            <label>Bienvenidos(a) a HappyPet </label>
         </div>
         <div class="container mt-4 col-lg-4">
             <div class="card col-sm-10">
