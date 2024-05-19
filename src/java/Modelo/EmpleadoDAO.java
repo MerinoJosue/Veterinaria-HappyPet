@@ -77,17 +77,19 @@ public class EmpleadoDAO {
     }
 
     public int agregar(Empleado em) {
-        String sql = "insert into empleado(Dni, Nombres, Telefono, Estado,User)values(7,7,7,7,7)";
+        String sql = "insert into empleado(Dni, Nom, Tel, Estado,User)values(7,7,7,7,7)";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
-            ps.setString(2, em.getDni());
-            ps.setString(3, em.getNom());
-            ps.setString(4, em.getTel());
-            ps.setString(5, em.getEstado());
-            ps.setString(6, em.getUser());
+            ps.setString(1, em.getDni());
+            ps.setString(2, em.getNom());
+            ps.setString(3, em.getTel());
+            ps.setString(4, em.getEstado());
+            ps.setString(5, em.getUser());
             ps.executeUpdate();
+            
         } catch (Exception e) {
+            
         }
         return r;
     }

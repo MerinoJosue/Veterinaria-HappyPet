@@ -41,7 +41,7 @@
                             <h4><i class="fa fa-user-plus"></i> Registrar Producto</h4>
                         </div>
                 <div class="card-body">
-                    <form>
+                    <form action="ControladorProductos?menu=Productos"method="POST">
                         <!-- Grupo de formulario para el campo Nombres -->
                         <div class="form-group">
                             <label>Nombre</label>
@@ -81,6 +81,7 @@
                     <thead>
                         <!-- Cabecera de la tabla -->
                         <tr>
+                            <th>ID</th>
                             <th>NOMBRE</th>
                             <th>PRECIO</th>
                             <th>STOCK</th>
@@ -88,7 +89,7 @@
                             <th>ACCIONES</th>
                         </tr>
                     </thead>
-                    <c:forEach var="em" items="${Productos}">
+                    <c:forEach var="pr" items="${productos}">
                     <!-- Fila donde se mostraran los datos de la bd -->
                     <tr>
                         <td>${pr.getId_Producto()}</td>
@@ -97,8 +98,8 @@
                         <td>${pr.getStock()}</td>
                         <td>${pr.getEstado()}</td>
                         <td>
-                            <a class="btn btn-warning"href="Controlador?menu=Productos&accion=Editar=${pr.getId_Producto()}">Editar</a>
-                            <a class="btn btn-warning"href="Controlador?menu=Productos&accion=Delete=${pr.getId_Producto()}">Delete</a>
+                            <a class="btn btn-warning"href="ControladorProductos?menu=Productos&accion=Editar=${pr.getId_Producto()}">Editar</a>
+                            <a class="btn btn-warning"href="ControladorProductos?menu=Productos&accion=Delete=${pr.getId_Producto()}">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
