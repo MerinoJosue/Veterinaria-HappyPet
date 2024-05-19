@@ -1,7 +1,7 @@
 package Modelo;
 
 public class Cliente {
-    int Id_Cliente;
+    String Id_Cliente;
     String nombre;
     String dni;
     String apellido;
@@ -12,8 +12,21 @@ public class Cliente {
     public Cliente(){
     }
 
-    public int getId_Cliente() {return this.Id_Cliente;}
-    public void setId_Cliente(int Id_Cliente) {this.Id_Cliente = Id_Cliente;}
+    public Cliente(String Id_Cliente, String nombre, String dni, String apellido, String direccion, String telefono, String Correo) {
+        this.Id_Cliente = Id_Cliente;
+        this.nombre = nombre;
+        this.dni = dni;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.Correo = Correo;
+    }
+    
+    
+    
+    
+    public String getId_Cliente() {return this.Id_Cliente;}
+    public void setId_Cliente(String Id_Cliente) {this.Id_Cliente = Id_Cliente;}
     public String getNombre() {return this.nombre;}
     public void setNombre(String nombre) {this.nombre = nombre;}
     public String getDni() {return this.dni;}

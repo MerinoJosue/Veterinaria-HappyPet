@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 // Definición de la clase del servlet
-public class Validar extends HttpServlet {
+public class ControladorValidar extends HttpServlet {
     // Instancia de EmpleadoDAO para interactuar con la base de datos
     EmpleadoDAO edao = new EmpleadoDAO();
     // Instancia de Empleado para almacenar el resultado de la validación
@@ -23,8 +23,19 @@ public class Validar extends HttpServlet {
     // Método para procesar las solicitudes HTTP
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Configuración del tipo de contenido de la respuesta HTTP
-        response.setContentType("text/html;charset=UTF-8");
+         String accion = request.getParameter("accion");
+        
+         if (accion != null) {
+                String user = request.getParameter("txtUser");
+                String dni = request.getParameter("txtDni");
+                Empleado empleadoValidado = edao.Validar(user, dni);
+                if (empleadoValidado != null) {
+                    request.getRequestDispatcher("Principal.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                }
+         }
+        
     }
 
     // Maneja las solicitudes HTTP GET
@@ -52,7 +63,7 @@ public class Validar extends HttpServlet {
             em = edao.Validar(user, pass);
             // Si el usuario es válido, redirige a la página Principal
             if (em.getUser() != null) {
-                request.getRequestDispatcher("Controlador?accion=Principal").forward(request, response);
+                request.getRequestDispatcher("Controlador?menu=Principal").forward(request, response);
             } else { // Si el usuario no es válido, redirige a la página de inicio de sesión
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }

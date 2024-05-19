@@ -30,10 +30,11 @@
                         <ul class="navbar-nav">
                             <li class="nav-item"><a style="margin-left: 10px;border: none"class="fa-sharp fa-solid fa-hospital-user"href="Controlador?menu=Productos">Productos</a></li>
                         <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-bed-pulse" href="Controlador?menu=Cliente">Clientes</a></li>
-                        <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-hospital" href="Controlador?menu=Empleado&accion=Listar">Empleados</a></li>
+                        
+                        <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-hospital" href="Controlador?menu=Empleado&accion=Listar">Empleado</a></li>
                         <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-bed-pulse" href="Controlador?menu=RegistrarVenta">NuevaVenta</a></li>
                         <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-phone" href="Controlador?menu=Proveedores">Proveedores</a></li>
-                        <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-envelope" href="Controlador?menu=ResgistrarCita">Registrar Cita</a></li>
+                        <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-envelope" href="Controlador?menu=Cliente">Registrar Cita</a></li>
                     </ul>
                      </div>
                 </nav>

@@ -1,5 +1,4 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -85,25 +84,24 @@
                                         <th>TELEFONO</th>
                                         <th>ESTADO</th>
                                         <th>USUARIO</th>
-                                        <th>ACCIONES</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach var="em" items="${Empleado}">
-                                        <!-- Fila donde se mostraran los datos de la bd -->
+                                    <c:forEach var="em" items="${empleados}">
                                         <tr>
-                                            <td>${em.Id_Empleado}</td>
-                                            <td>${em.Dni}</td>
-                                            <td>${em.Nom}</td>
-                                            <td>${em.Tel}</td>
-                                            <td>${em.Estado}</td>
-                                            <td>${em.User}</td>
+                                            <td>${em.id_Empleado}</td>
+                                            <td>${em.dni}</td>
+                                            <td>${em.nom}</td>
+                                            <td>${em.tel}</td>
+                                            <td>${em.estado}</td>
+                                            <td>${em.user}</td>
                                             <td>
-                                                <a class="btn btn-warning"href="Controlador?menu=Empleado&accion=Editar&Id_Empleado=${em.getId_Empleado()}">Editar</a>
-                                                <a class="btn btn-warning"href="Controlador?menu=Empleado&accion=Delete&Id_Empleado=${em.getId_Empleado()}">Delete</a>
+                                                <a>Editar</a>
+                                                <a>Delete</a>
                                             </td>
                                         </tr>
-                                    </c:forEach>
+                                    </c:forEach> 
+
 
 
                                 </tbody>

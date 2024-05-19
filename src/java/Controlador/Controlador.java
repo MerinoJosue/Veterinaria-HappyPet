@@ -11,14 +11,13 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author USER
- */
+
+@WebServlet(name = "Controlador", urlPatterns = {"/Controlador"})
 public class Controlador extends HttpServlet {
 
     Empleado em = new Empleado();
@@ -29,29 +28,20 @@ public class Controlador extends HttpServlet {
             throws ServletException, IOException {
         String menu = request.getParameter("menu");
         String accion = request.getParameter("accion");
-        
-         if (accion != null) {
-                String user = request.getParameter("txtUser");
-                String dni = request.getParameter("txtDni");
-                Empleado empleadoValidado = edao.Validar(user, dni);
-                if (empleadoValidado != null) {
-                    request.getRequestDispatcher("Principal.jsp").forward(request, response);
-                } else {
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
-                }
-         }
-                
-        if (menu != null) {
+
+        if (menu.equals("Principal")) {
+            request.getRequestDispatcher("Principal.jsp").forward(request, response);
+        }
+
         if (menu.equals("Empleado")) {
-            
-            
+
             switch (accion) {
-                
-                
+
                 case "Listar":
                     List<Empleado> lista = edao.listar();
-                    request.setAttribute("Empleado", lista);
-                    request.getRequestDispatcher("Principal.jsp").forward(request, response);
+                    System.out.println("Número de empleados listados en el servlet: " + lista.size());
+                    request.setAttribute("empleados", lista);
+                    request.getRequestDispatcher("Empleados.jsp").forward(request, response);
                     break;
 
                 case "Agregar":
@@ -100,6 +90,7 @@ public class Controlador extends HttpServlet {
             }
             request.getRequestDispatcher("Empleados.jsp").forward(request, response);
         }
+
         if (menu.equals("Productos")) {
             request.getRequestDispatcher("Productos.jsp").forward(request, response);
         }
@@ -109,7 +100,7 @@ public class Controlador extends HttpServlet {
         if (menu.equals("RegistrarCita")) {
             request.getRequestDispatcher("RegistrarCita.jsp").forward(request, response);
         }
-        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -123,9 +114,9 @@ public class Controlador extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EmpleadoDAO dao = new EmpleadoDAO();
-        List<Empleado> lista = dao.listar();
-        request.setAttribute("Empleado", lista);
+        
+        List<Empleado> lista = edao.listar();
+        request.setAttribute("empleados", lista);
         RequestDispatcher dispatcher = request.getRequestDispatcher("Empleados.jsp");
         dispatcher.forward(request, response);
     }

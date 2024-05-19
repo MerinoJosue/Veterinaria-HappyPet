@@ -24,7 +24,7 @@ public class ClienteDao {
          ps=con.prepareStatement(sql);
          rs=ps.executeQuery();
          while(rs.next()){
-             c.setId_Cliente(rs.getInt(1));
+             c.setId_Cliente(rs.getString(1));
              c.setNombre(rs.getString(2));
              c.setDni(rs.getString(3));
              c.setApellido(rs.getString(4));
@@ -45,7 +45,7 @@ public class ClienteDao {
             rs=ps.executeQuery();
             while (rs.next()){
                 Cliente c= new Cliente();
-                c.setId_Cliente(rs.getInt(1));
+                c.setId_Cliente(rs.getString(1));
                 c.setNombre(rs.getString(2));
                 c.setDni(rs.getString(3));
                 c.setApellido(rs.getString(4));
@@ -104,7 +104,7 @@ public class ClienteDao {
             ps.setString(4, c.getDireccion());
             ps.setString(5,c.getTelefono());
             ps.setString(6,c.getCorreoElectronico());
-            ps.setInt(8,c.getId_Cliente());
+            ps.setString(8,c.getId_Cliente());
             ps.executeUpdate();
             
         } catch (Exception e) {
