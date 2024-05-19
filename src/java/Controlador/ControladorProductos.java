@@ -41,8 +41,8 @@ public class ControladorProductos extends HttpServlet {
 
                 case "Agregar":
                     String Nombre = request.getParameter("txtNombre");
-                    Double Precio = Double.valueOf(request.getParameter("txtPrecio"));
-                    int Stock = Integer.parseInt(request.getParameter("txtStock"));
+                    String Precio = request.getParameter("txtPrecio");
+                    String Stock = request.getParameter("txtStock");
                     String Estado = request.getParameter("txtEstado");
                     pr.setNombre(Nombre);
                     pr.setPrecio(Precio);
@@ -62,10 +62,10 @@ public class ControladorProductos extends HttpServlet {
                   
                     break;
                 default:
-                    throw new AssertionError();
+                    request.getRequestDispatcher("Productos.jsp").forward(request, response);
             }
             
-            request.getRequestDispatcher("Productos.jsp").forward(request, response);
+            
         }
         
     }

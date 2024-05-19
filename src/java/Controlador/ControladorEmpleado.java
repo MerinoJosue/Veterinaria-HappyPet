@@ -54,10 +54,9 @@ public class ControladorEmpleado extends HttpServlet {
                     em.setEstado(Estado);
                     em.setUser(User);
                     edao.agregar(em);
-                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
+                    request.getRequestDispatcher("ControladorEmpleado?menu=Empleado&accion=Listar").forward(request, response);
                     break;
                     
-
                 case "Editar":
                     ide = Integer.parseInt(request.getParameter("Id_Empleado"));
                     Empleado e = edao.listarId(ide);
@@ -85,9 +84,9 @@ public class ControladorEmpleado extends HttpServlet {
                     request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     break;
                 default:
-                    throw new AssertionError();
+                    request.getRequestDispatcher("Empleados.jsp").forward(request, response);
             }
-            request.getRequestDispatcher("Empleados.jsp").forward(request, response);
+            
         }
     }
 

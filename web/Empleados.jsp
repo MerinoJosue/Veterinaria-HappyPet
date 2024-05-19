@@ -40,7 +40,7 @@
                             <h4><i class="fa fa-user-plus"></i> Registrar Empleado</h4>
                         </div>
                         <div class="card-body">
-                            <form action="ControladorEmpleado?menu=Empleado"method="POST">
+                            <form action="ControladorEmpleado?menu=Empleado" method="POST">
                                 <div class="form-group">
                                     <label>Dni</label>
                                     <input type="text" name="txtDni" class="form-control">
@@ -61,7 +61,7 @@
                                     <label >Usuario</label>
                                     <input type="text"  name="txtUser" class="form-control">
                                 </div>
-                                    <input type="submit" name="accion" value="Agregar" class="btn btn-info">
+                                    <input type="submit"  name="accion" value="Agregar" class="btn btn-info">
                                     <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
                             </form>
                         </div>

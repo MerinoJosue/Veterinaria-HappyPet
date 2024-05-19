@@ -11,14 +11,14 @@ package Modelo;
 public class Productos {
     int Id_Producto;
     String Nombre;
-    Double Precio;
-    int Stock;
+    String Precio;
+    String Stock;
     String Estado;
     
   public Productos(){
       
   }
-  public Productos(int Id_Producto,String Nombre,Double Precio,int Stock,String Estado ){
+  public Productos(int Id_Producto,String Nombre,String Precio,String Stock,String Estado ){
       this.Id_Producto=Id_Producto;
       this.Nombre=Nombre;
       this.Precio=Precio;
@@ -42,19 +42,19 @@ public class Productos {
         this.Nombre = Nombre;
     }
 
-    public Double getPrecio() {
+    public String getPrecio() {
         return Precio;
     }
 
-    public void setPrecio(Double Precio) {
+    public void setPrecio(String Precio) {
         this.Precio = Precio;
     }
 
-    public int getStock() {
+    public String getStock() {
         return Stock;
     }
 
-    public void setStock(int Stock) {
+    public void setStock(String Stock) {
         this.Stock = Stock;
     }
 
