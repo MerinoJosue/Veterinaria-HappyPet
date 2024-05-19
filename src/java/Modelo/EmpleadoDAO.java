@@ -17,27 +17,30 @@ public class EmpleadoDAO {
 
     public Empleado Validar(String user, String dni) {
         Empleado em = new Empleado();
-        String sql = "SELECT * FROM Empleado WHERE User=? AND Dni=?";
-
-        try (Connection con = cn.Conexion(); PreparedStatement ps = con.prepareStatement(sql)) {
-
+        String sql = "SELECT * FROM empleado WHERE User=? AND Dni=?";
+        try {
+            con = cn.Conexion();
             if (con != null) {
                 System.out.println("Conexión establecida correctamente.");
             } else {
                 System.out.println("Error: No se pudo establecer la conexión.");
-                return em; // Retorna vacío si la conexión no se establece
             }
-
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
             ps.setString(1, user);
             ps.setString(2, dni);
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    em.setId_Empleado(rs.getInt("Id_Empleado"));
-                    em.setUser(rs.getString("User"));
-                    em.setDni(rs.getString("Dni"));
-                }
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                em.setId_Empleado(rs.getInt("Id_Empleado"));
+                em.setUser(rs.getString("User"));
+                em.setDni(rs.getString("Dni"));
             }
+            // Se cierran los recursos
+            rs.close();
+            ps.close();
+            con.close();
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return em;
     }

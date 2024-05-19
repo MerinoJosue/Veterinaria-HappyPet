@@ -51,7 +51,6 @@ public class ControladorValidar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Llama al método para procesar la solicitud
-        processRequest(request, response);
         // Obtiene el parámetro 'accion' del formulario
         String accion = request.getParameter("accion");
         // Verifica si la acción es 'Ingresar'
@@ -63,7 +62,7 @@ public class ControladorValidar extends HttpServlet {
             em = edao.Validar(user, pass);
             // Si el usuario es válido, redirige a la página Principal
             if (em.getUser() != null) {
-                request.getRequestDispatcher("Controlador?menu=Principal").forward(request, response);
+                request.getRequestDispatcher("Controlador?accion=Principal").forward(request, response);
             } else { // Si el usuario no es válido, redirige a la página de inicio de sesión
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
