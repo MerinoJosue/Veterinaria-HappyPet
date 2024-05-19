@@ -45,22 +45,22 @@
                         <!-- Grupo de formulario para el campo Nombres -->
                         <div class="form-group">
                             <label>Nombre</label>
-                            <input type="text" name="txtNombres" class="form-control">
+                            <input type="text" name="txtNombre" class="form-control">
                         </div> 
                         <!-- Grupo de formulario para el campo Telefono -->
                         <div class="form-group">
                             <label>Precio</label>
-                            <input type="text"  name="txtTelefono" class="form-control">
+                            <input type="text"  name="txtPrecio" class="form-control">
                         </div> 
                         <!-- Grupo de formulario para el campo Estado -->
                         <div class="form-group">
                             <label>Stock</label>
-                            <input type="text"  name="txtEstado" class="form-control">
+                            <input type="text"  name="txtStock" class="form-control">
                         </div> 
                         <!-- Grupo de formulario para el campo Usuario -->
                        <div class="mb-3">
                                     <label >Estado</label>
-                                    <input type="text" name="txtUser" class="form-control">
+                                    <input type="text" name="txtEstado" class="form-control">
                                 </div>
                                 <div class="text-center">
                                     <input type="submit" name="accion" value="Agregar" class="btn btn-info">

@@ -29,7 +29,7 @@
                     <div class="collapse navbar-collapse"id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item"><a style="margin-left: 10px;border: none"class="fa-sharp fa-solid fa-hospital-user"href="ControladorProductos?menu=Productos&accion=Listar">Productos</a></li>
-                        <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-bed-pulse" href="Controlador?menu=Cliente">Clientes</a></li>
+                        <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-bed-pulse" href="ControladorCliente?menu=Cliente">Clientes</a></li>
                         
                         <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-hospital" href="ControladorEmpleado?menu=Empleado&accion=Listar">Empleado</a></li>
                         <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-bed-pulse" href="Controlador?menu=RegistrarVenta">NuevaVenta</a></li>
