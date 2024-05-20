@@ -25,7 +25,7 @@ public class ControladorValidar extends HttpServlet {
             throws ServletException, IOException {
          String accion = request.getParameter("accion");
         
-         if (accion != null) {
+         if (accion != null && em.getUser() != null) {
                 String user = request.getParameter("txtUser");
                 String dni = request.getParameter("txtDni");
                 Empleado empleadoValidado = edao.Validar(user, dni);

@@ -21,16 +21,17 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ControladorProductos extends HttpServlet {
 
-    Productos pr=new Productos();
-    ProductosDAO pdao=new ProductosDAO();
+    Productos pr = new Productos();
+    ProductosDAO pdao = new ProductosDAO();
     int pde;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String menu = request.getParameter("menu");
+        String menu = request.getParameter("menu");
         String accion = request.getParameter("accion");
-        
+
         if (menu.equals("Productos")) {
-             switch (accion) {
+            switch (accion) {
 
                 case "Listar":
                     List<Productos> lista = pdao.listar();
@@ -53,21 +54,37 @@ public class ControladorProductos extends HttpServlet {
                     break;
 
                 case "Editar":
-                 
+
+                    pde = Integer.parseInt(request.getParameter("id"));
+                    Productos p = pdao.listarId(pde);
+                    request.setAttribute("producto", p);
+                    request.getRequestDispatcher("ControladorProductos?menu=Productos&accion=Listar").forward(request, response);
                     break;
+
                 case "Actualizar":
-                   
+                    String Nombre1 = request.getParameter("txtNombre");
+                    String Precio1 = request.getParameter("txtPrecio");
+                    String Stock1 = request.getParameter("txtStock");
+                    String Estado1 = request.getParameter("txtEstado");
+                    pr.setNombre(Nombre1);
+                    pr.setPrecio(Precio1);
+                    pr.setStock(Stock1);
+                    pr.setEstado(Estado1);
+                    pdao.actulizar(pr);
+                    request.getRequestDispatcher("ControladorProductos?menu=Productos&accion=Listar").forward(request, response);
                     break;
                 case "Delete":
-                  
+                    pde = Integer.parseInt(request.getParameter("id"));
+                    pdao.delete(pde);
+                    request.getRequestDispatcher("ControladorProductos?menu=Productos&accion=Listar").forward(request, response);
                     break;
                 default:
-                    request.getRequestDispatcher("Productos.jsp").forward(request, response);
+                    request.getRequestDispatcher("ControladorProductos?menu=Productos&accion=Listar").forward(request, response);
             }
-            
-            
+            System.out.println("");
+
         }
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -82,11 +99,8 @@ public class ControladorProductos extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-              
-        List<Productos> lista = pdao.listar();
-        request.setAttribute("productos", lista);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("Productos.jsp");
-        dispatcher.forward(request, response);
+
+        processRequest(request, response);
     }
 
     /**

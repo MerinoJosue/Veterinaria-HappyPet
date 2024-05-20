@@ -87,16 +87,16 @@ public class EmpleadoDAO {
             ps.setString(4, em.getEstado());
             ps.setString(5, em.getUser());
             ps.executeUpdate();
-            
+
         } catch (Exception e) {
-            
+
         }
         return r;
     }
 
     public Empleado listarId(int id) {
         Empleado emp = new Empleado();
-        String sql = "select * from Empleado where Id_Empleado=" + id;
+        String sql = "select * from empleado where Id_Empleado=" + id;
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -113,8 +113,8 @@ public class EmpleadoDAO {
         return emp;
     }
 
-    public int actualizar(Empleado em) {
-        String sql = "update Empleado set Dni=?, Nombres=?, Telefono=?, Estado=?,User=? where Id_Empleado=?";
+    public boolean actualizar(Empleado em) {
+        String sql = "UPDATE empleado SET Dni=?, Nom=?, Tel=?, Estado=?, User=? WHERE Id_Empleado=?";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -124,20 +124,38 @@ public class EmpleadoDAO {
             ps.setString(4, em.getEstado());
             ps.setString(5, em.getUser());
             ps.setInt(6, em.getId_Empleado());
-            ps.executeUpdate();
-
+            int rowsUpdated = ps.executeUpdate();
+            ps.close();
+            con.close();
+            return rowsUpdated > 0;
         } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
-        return r;
     }
 
     public void delete(int id) {
-        String sql = "delete from Empleado where Id_Empleado=" + id;
+        String sql = "DELETE FROM Empleado WHERE Id_Empleado=?";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             ps.executeUpdate();
         } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // Aquí deberías cerrar los recursos (ps, con) para evitar posibles fugas de recursos
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
+
 }
