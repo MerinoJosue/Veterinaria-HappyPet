@@ -1,4 +1,6 @@
 
+<%@page import="Modelo.Cliente"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -9,9 +11,23 @@
     </head>
     <body>
         <h1>Bienvenido(a) a HappyPet</h1>
-        <input type="submit" name="accion" value="Empleado" class="btn btn-primary">
-        <input type="submit" name="accion" value="Administrador" class="btn btn-primary">
-        <img src="imagen/Perritos.png" alt=""/>
-        
+        <%
+            List<Cliente> listaclientes = (List) request.getSession().getAttribute("listaclientes");
+            int cont = 1;
+            for (Cliente usu : listaclientes) {
+
+
+        %>
+
+        <p><b>Clientes N°<%=cont%></b></p>
+        <p><b>ID_Clientes: <%=usu.getId_Cliente()%></b></p>
+        <p><b>Nombre <%=usu.getNombre()%></b></p>
+        <p><b>Dni: <%=usu.getDni()%></b></p>
+        <p><b>Apellido: <%=usu.getApellido()%></b></p>
+        <p><b>Direccion: <%=usu.getDireccion()%></b></p>
+        <p><b>Telefono: <%=usu.getTelefono()%></b></p>
+        <p><b>Coreo: <%=usu.getCorreoElectronico()%></b></p>
+        <% cont++;%>
+        <%}%>
     </body>
 </html>

@@ -96,7 +96,8 @@ public class ProductosDAO {
         return pro;
     }
 
-    public int actulizar(Productos pr) {
+    public int actualizar(Productos pr) {
+        int resultado = 0;
         String sql = "update Productos set  Nombre=?, Precio=?, Stock=?,Estado=? where Id_Producto=?";
         try {
             con = cn.Conexion();
@@ -105,12 +106,12 @@ public class ProductosDAO {
             ps.setString(2, pr.getPrecio());
             ps.setString(3, pr.getStock());
             ps.setString(4, pr.getEstado());
-            ps.setInt(6, pr.getId_Producto());
-            ps.executeUpdate();
+            ps.setInt(5, pr.getId_Producto());
+            resultado=ps.executeUpdate();
 
         } catch (Exception e) {
         }
-        return r;
+        return resultado;
     }
 
     public void delete(int id) {

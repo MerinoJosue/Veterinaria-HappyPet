@@ -66,13 +66,11 @@ public class ControladorProductos extends HttpServlet {
                     String Precio1 = request.getParameter("txtPrecio");
                     String Stock1 = request.getParameter("txtStock");
                     String Estado1 = request.getParameter("txtEstado");
-                    pr.setNombre(Nombre1);
-                    pr.setPrecio(Precio1);
-                    pr.setStock(Stock1);
-                    pr.setEstado(Estado1);
-                    pdao.actulizar(pr);
+                    Productos pr = new Productos(pde,Nombre1,Precio1, Stock1, Estado1);
+                    pdao.actualizar(pr);
                     request.getRequestDispatcher("ControladorProductos?menu=Productos&accion=Listar").forward(request, response);
                     break;
+                    
                 case "Delete":
                     pde = Integer.parseInt(request.getParameter("id"));
                     pdao.delete(pde);

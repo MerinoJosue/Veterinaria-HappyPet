@@ -56,26 +56,16 @@ public class ControladorEmpleado extends HttpServlet {
                     break;
 
                 case "Actualizar":
-                    ide = Integer.parseInt(request.getParameter("id"));
                     String DniActualizar = request.getParameter("txtDni");
                     String NomActualizar = request.getParameter("txtNom");
                     String TelActualizar = request.getParameter("txtTel");
                     String EstadoActualizar = request.getParameter("txtEstado");
                     String UserActualizar = request.getParameter("txtUser");
-
-                    em.setId_Empleado(ide);
-                    em.setDni(DniActualizar);
-                    em.setNom(NomActualizar);
-                    em.setTel(TelActualizar);
-                    em.setEstado(EstadoActualizar);
-                    em.setUser(UserActualizar);
-
-                    boolean actualizado = edao.actualizar(em);
-
-                    // Depuración
-                    System.out.println("Empleado actualizado: " + actualizado);
-
+                    Empleado em = new Empleado(ide, DniActualizar, NomActualizar,
+                    TelActualizar, EstadoActualizar, UserActualizar);
+                    edao.actualizar(em);
                     request.getRequestDispatcher("ControladorEmpleado?menu=Empleado&accion=Listar").forward(request, response);
+
                     break;
 
                 case "Delete":
