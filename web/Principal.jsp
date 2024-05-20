@@ -25,18 +25,16 @@
                 <label for="menu">
                     <img src="imagen/Perritos.png" class="menu-icono" alt=""/>
                 </label>
-                <nav class="navbar navbar-expand-lg navbar-light bg-info" >
-                    <div class="collapse navbar-collapse"id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item"><a style="margin-left: 10px;border: none"class="fa-sharp fa-solid fa-hospital-user"href="ControladorProductos?menu=Productos&accion=Listar">Productos</a></li>
-                        <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-bed-pulse" href="ControladorCliente?menu=Cliente">Clientes</a></li>
-                        
-                        <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-hospital" href="ControladorEmpleado?menu=Empleado&accion=Listar">Empleado</a></li>
-                        <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-bed-pulse" href="Controlador?menu=RegistrarVenta">NuevaVenta</a></li>
-                        <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-phone" href="Controlador?menu=Proveedores">Proveedores</a></li>
-                        <li class="nav-item"><a style="margin-left: 10px;border: none" class="fa-solid fa-envelope" href="Controlador?menu=Cliente">Registrar Cita</a></li>
+                <nav class="navbar" >
+                    <ul>
+                        <li><a class="fa-sharp fa-solid fa-hospital-user"href="#">Productos</a></li>
+                        <li><a class="fa-solid fa-bed-pulse" href="#">Clientes</a></li>
+                        <li><a class="fa-solid fa-hospital" href="#">Usuarios</a></li>
+                        <li><a class="fa-solid fa-bed-pulse" href="#">NuevaVenta</a></li>
+                        <li><a class="fa-solid fa-phone" href="#">Proveedores</a></li>
+                        <li><a class="fa-solid fa-envelope" href="#">Registrar Cita</a></li>
+                        <li><a class="fa-solid fa-user" href="#">Usuario</a></li>
                     </ul>
-                     </div>
                 </nav>
             </div>
 

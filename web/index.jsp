@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -10,11 +11,12 @@
     </head>
     <body>
         <div class="menu-logo">
-            <a href="#" class="logo">logo logo</a>
+            <a href="#" class="logo">logo</a>
+
         </div>
 
         <div class="text-center">
-            <label>Bienvenidos(a) a HappyPet </label>
+            <label>Bienvenidos(a) a HappyPet</label>
         </div>
         <div class="container mt-4 col-lg-4">
             <div class="card col-sm-10">
@@ -28,14 +30,15 @@
                             <label>Contraseña:</label>
                             <input type="password" name="txtpass" class="form-control">
                         </div>
-                        <div class="card-body text-center">
-                            <input type="submit" name="accion" value="Ingresar" class="btn btn-primary">
-                        </div>
                     </form>
                 </div>
+                <div class="card-body text-center">
+                    <input type="submit" name="accion" value="Ingresar" class="btn btn-primary">
+                </div>
+
             </div>
         </div>
-        <img src="imagen/Perritos.png" alt="Perritos" width="170"/>
+                            <img src="imagen/Perritos.png" alt="70" width="170"/>
 
         <h1></h1>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
