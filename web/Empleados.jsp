@@ -41,28 +41,30 @@
                         </div>
                         <div class="card-body">
                             <form action="ControladorEmpleado?menu=Empleado" method="POST">
+                                <input type="hidden" name="menu" value="Empleado" />
+                                <input type="hidden" name="id" value="${empleado.getId_Empleado()}" />
                                 <div class="form-group">
                                     <label>Dni</label>
-                                    <input type="text" name="txtDni" class="form-control">
+                                    <input type="text" name="txtDni" value="${empleado.getDni()}" class="form-control">
                                 </div>
                                 <div class=form-group">
                                     <label>Nombres</label>
-                                    <input type="text"  name="txtNom"  class="form-control">
+                                    <input type="text"  name="txtNom" value="${empleado.getNom()}" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Teléfono</label>
-                                    <input type="text"  name="txtTel" class="form-control">
+                                    <input type="text"  name="txtTel" value="${empleado.getTel()}" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label >Estado</label>
-                                    <input type="text"  name="txtEstado" class="form-control">
+                                    <input type="text"  name="txtEstado" value="${empleado.getEstado()}" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label >Usuario</label>
-                                    <input type="text"  name="txtUser" class="form-control">
+                                    <input type="text"  name="txtUser" value="${empleado.getUser()}" class="form-control">
                                 </div>
-                                    <input type="submit"  name="accion" value="Agregar" class="btn btn-info">
-                                    <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
+                                <input type="submit"  name="accion" value="Actualizar" class="btn btn-success">
+                                <input type="submit"  name="accion" value="Agregar" class="btn btn-info">
                             </form>
                         </div>
                     </div>
@@ -87,15 +89,15 @@
                                 <tbody>
                                     <c:forEach var="em" items="${empleados}">
                                         <tr>
-                                            <td>${em.id_Empleado}</td>
-                                            <td>${em.dni}</td>
-                                            <td>${em.nom}</td>
-                                            <td>${em.tel}</td>
-                                            <td>${em.estado}</td>
-                                            <td>${em.user}</td>
+                                            <td>${em.getId_Empleado()}</td>
+                                            <td>${em.getDni()}</td>
+                                            <td>${em.getNom()}</td>
+                                            <td>${em.getTel()}</td>
+                                            <td>${em.getEstado()}</td>
+                                            <td>${em.getUser()}</td>
                                             <td>
-                                                <a>Editar</a>
-                                                <a>Delete</a>
+                                                <a class="btn btn-warning" href="ControladorEmpleado?menu=Empleado&accion=Editar&id=${em.getId_Empleado()}">Editar</a>
+                                                <a class="btn btn-danger" href="ControladorEmpleado?menu=Empleado&accion=Delete&id=${em.getId_Empleado()}">Delete</a>
                                             </td>
                                         </tr>
                                     </c:forEach> 
